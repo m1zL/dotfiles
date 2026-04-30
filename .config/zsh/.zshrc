@@ -31,9 +31,9 @@ WORDCHARS=''
 #### It recursively reads all .zsh files in the hidden/
 HIDDEN_ALIASES_DIR="$HOME/.config/zsh/hidden"
 if [ -d "$HIDDEN_ALIASES_DIR" ]; then
-▎ for f in "$HIDDEN_ALIASES_DIR"/*.zsh(N); do
-▎ ▎ if [ -r "$f" ] && [ -f "$f" ]; then
-▎ ▎ ▎ source "$f"
-▎ ▎ fi
-▎ done
+  for f in "$HIDDEN_ALIASES_DIR"/*.zsh(N); do
+    if [ -r "$f" ] && [ -f "$f" ]; then
+      source "$f"
+    fi
+  done
 fi
