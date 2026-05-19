@@ -1,0 +1,6 @@
+[alias]
+	fh = fetch
+	ss = status
+	co = checkout
+	po = pull origin
+	br = branch
