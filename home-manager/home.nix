@@ -6,7 +6,8 @@
 
   home.stateVersion = "25.11"; # Please read the comment before changing.
 
-  home.packages = [
+  home.packages = with pkgs; [
+    fastfetch
   ];
 
   home.file = {
