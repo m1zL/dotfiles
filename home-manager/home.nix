@@ -8,9 +8,11 @@
 
   home.packages = with pkgs; [
     fastfetch
+    git
   ];
 
   home.file = {
+    ".gitconfig".source = ./git/.gitconfig;
   };
 
   home.sessionVariables = {
