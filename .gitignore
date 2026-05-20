@@ -1,0 +1,3 @@
+### Secrets
+/.config/gh/**
+!/.config/gh/config.yml
