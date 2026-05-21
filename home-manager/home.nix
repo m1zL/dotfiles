@@ -9,6 +9,7 @@
   home.packages = with pkgs; [
     fastfetch
     git
+    gh
   ];
 
   home.file = {
