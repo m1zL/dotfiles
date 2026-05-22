@@ -1,5 +1,5 @@
 {
-  description = "Home Manager configuration of a";
+  description = "Home Manager configuration";
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
@@ -8,10 +8,19 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }:
+    {
+      nixpkgs,
+      home-manager,
+      nix-darwin,
+      ...
+    }:
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -19,13 +28,11 @@
     {
       homeConfigurations."a" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
         modules = [ ./home-manager/home.nix ];
+      };
 
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+      darwinConfigurations."enoMacBook-Air" = nix-darwin.lib.darwinSystem {
+        modules = [ ./nix-darwin/configuration.nix];
       };
     };
 }
