@@ -22,18 +22,44 @@
       nix-darwin,
     }:
     let
-      system = "aarch64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
+      my_pc =
+        let
+          pc_info = {
+            mac = {
+              hostPlatform = "aarch64-darwin";
+              user = "a";
+              hostname = "enoMacBook-Air";
+            };
+          };
+        in
+        builtins.mapAttrs (
+          name: pc:
+          pc
+          // {
+            pkgs = nixpkgs.legacyPackages.${pc.hostPlatform};
+          }
+        ) pc_info;
     in
     {
-      homeConfigurations."a" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./home-manager/home.nix ];
+      homeConfigurations = {
+        "${my_pc.mac.user}" = home-manager.lib.homeManagerConfiguration {
+          inherit (my_pc.mac) pkgs;
+          modules = [
+            ./home-manager/home.nix
+	  ];
+	};
       };
 
-      darwinConfigurations."enoMacBook-Air" = nix-darwin.lib.darwinSystem {
-        specialArgs = { inherit self; };
-        modules = [ ./nix-darwin/configuration.nix];
+      darwinConfigurations = {
+        "${my_pc.mac.hostname}" = nix-darwin.lib.darwinSystem {
+          specialArgs = {
+            inherit self;
+	    inherit (my_pc.mac) user hostPlatform;
+          };
+          modules = [
+            ./nix-darwin/MacBookAirM1/configuration.nix
+          ];
+        };
       };
     };
 }
