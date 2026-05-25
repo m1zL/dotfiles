@@ -58,6 +58,7 @@
           };
           modules = [
             ./nix-darwin/MacBookAirM1/configuration.nix
+	    home-manager.darwinModules.home-manager
           ];
         };
       };

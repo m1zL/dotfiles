@@ -1,2 +1,2 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
-. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+. "/etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh"
