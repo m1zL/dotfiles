@@ -1,0 +1,9 @@
+{
+  hostPlatform,
+  ...
+}:
+{
+  nixpkgs = {
+    inherit hostPlatform;
+  };
+}
