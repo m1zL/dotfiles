@@ -30,5 +30,6 @@
     ./nixpkgs.nix
     ./system.nix
     ./home_manager.nix
+    ./homebrew.nix
   ];
 }

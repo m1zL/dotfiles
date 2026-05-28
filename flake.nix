@@ -12,6 +12,7 @@
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
   };
 
   outputs =
@@ -20,6 +21,7 @@
       nixpkgs,
       home-manager,
       nix-darwin,
+      nix-homebrew,
     }:
     let
       my_pc =
@@ -46,19 +48,20 @@
           inherit (my_pc.mac) pkgs;
           modules = [
             ./home-manager/home.nix
-	  ];
-	};
+          ];
+        };
       };
 
       darwinConfigurations = {
         "${my_pc.mac.hostname}" = nix-darwin.lib.darwinSystem {
           specialArgs = {
-            inherit self;
-	    inherit (my_pc.mac) user hostPlatform;
+            inherit self nix-homebrew;
+            inherit (my_pc.mac) user hostPlatform;
           };
           modules = [
             ./nix-darwin/MacBookAirM1/configuration.nix
-	    home-manager.darwinModules.home-manager
+            home-manager.darwinModules.home-manager
+            nix-homebrew.darwinModules.nix-homebrew
           ];
         };
       };
