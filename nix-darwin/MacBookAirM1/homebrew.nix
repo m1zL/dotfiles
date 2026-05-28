@@ -15,10 +15,18 @@
     user = "a";
     # brews = [];
     casks = [
-      "wez/wezterm/wezterm-nightly"
+      "wezterm@nightly"
+      "hammerspoon"
+      "nikitabobko/tap/aerospace"
     ];
     taps = [
-      "wez/wezterm"
+      "nikitabobko/tap"
     ];
+    onActivation = {
+      upgrade = true;
+      autoUpdate = true;
+      cleanup = "uninstall";
+    };
+    global.autoUpdate = false;
   };
 }
