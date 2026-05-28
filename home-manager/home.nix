@@ -10,6 +10,9 @@
     fastfetch
     git
     gh
+    lazygit
+    neovim
+    starship
   ];
 
   home.file = {
