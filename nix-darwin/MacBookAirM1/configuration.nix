@@ -24,7 +24,11 @@
   nix.enable = false;
 
   # 利用するシェルを指定する
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions= true;
+    enableSyntaxHighlighting = true;
+  };
 
   imports = [
     ./nixpkgs.nix
