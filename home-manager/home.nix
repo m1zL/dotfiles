@@ -13,6 +13,8 @@
     lazygit
     neovim
     starship
+    direnv
+    nix-direnv
   ];
 
   home.file = {

@@ -26,3 +26,5 @@ if [ -d "$HIDDEN_ALIASES_DIR" ]; then
     fi
   done
 fi
+
+eval "$(direnv hook zsh)"
