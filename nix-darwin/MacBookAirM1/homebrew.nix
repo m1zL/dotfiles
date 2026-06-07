@@ -18,6 +18,7 @@
       "wezterm@nightly"
       "hammerspoon"
       "nikitabobko/tap/aerospace"
+      "claude-code"
     ];
     taps = [
       "nikitabobko/tap"
