@@ -25,7 +25,7 @@
     ];
     onActivation = {
       upgrade = true;
-      autoUpdate = true;
+      autoUpdate = false;
       cleanup = "uninstall";
     };
     global.autoUpdate = false;
