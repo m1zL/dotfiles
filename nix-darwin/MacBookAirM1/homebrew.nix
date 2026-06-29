@@ -19,9 +19,11 @@
       "hammerspoon"
       "nikitabobko/tap/aerospace"
       "claude-code"
+      "cmux"
     ];
     taps = [
       "nikitabobko/tap"
+      "manaflow-ai/cmux"
     ];
     onActivation = {
       upgrade = true;
