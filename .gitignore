@@ -17,6 +17,7 @@
 !/home-manager/**
 !/nix-darwin/
 !/nix-darwin/**
+**/.claude/settings.local.json
 
 # global #
 !/README.md
