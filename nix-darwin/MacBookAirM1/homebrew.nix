@@ -13,7 +13,9 @@
   homebrew = {
     enable = true;
     user = "a";
-    # brews = [];
+    brews = [
+      "crit"
+    ];
     casks = [
       "wezterm@nightly"
       "hammerspoon"
