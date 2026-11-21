@@ -32,7 +32,9 @@
     onActivation = {
       upgrade = true;
       autoUpdate = false;
-      cleanup = "uninstall";
+      # 新しい Homebrew は `brew bundle --cleanup` を廃止したため "none" にする
+      # （"uninstall"/"zap" は --cleanup を渡してエラーになる）
+      cleanup = "none";
     };
     global.autoUpdate = false;
   };

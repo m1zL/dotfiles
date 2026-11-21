@@ -26,5 +26,10 @@
   home.sessionVariables = {
   };
 
+  # herdr-core (hc) CLI は install.sh が ~/.local/bin に symlink するため PATH に追加
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
+
   programs.home-manager.enable = true;
 }
