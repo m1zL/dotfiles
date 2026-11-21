@@ -22,6 +22,8 @@
       "nikitabobko/tap/aerospace"
       "claude-code"
       "cmux"
+      "zed"
+      "raycast"
     ];
     taps = [
       "nikitabobko/tap"

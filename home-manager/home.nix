@@ -15,6 +15,8 @@
     starship
     direnv
     nix-direnv
+    poppler-utils
+    nodejs
   ];
 
   home.file = {
